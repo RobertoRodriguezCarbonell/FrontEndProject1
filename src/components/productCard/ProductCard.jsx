@@ -1,11 +1,17 @@
-// src/components/productCard/ProductCard.jsx
-
-import React from "react";
+import React, { useState } from "react";
 import Buttons from "../buttons/Buttons";
 import CategoriesProducts from "../categoriesProducts/CategoriesProducts";
 import Precio from "../precio/Precio";
+import Toast from "../toast/Toast";
 
 const ProductCard = ({ name, description, image, categories, precio }) => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleShowToast = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
   return (
     <div className="bg-sandpr py-4 px-4 rounded-lg shadow-lg">
       <img
@@ -30,7 +36,15 @@ const ProductCard = ({ name, description, image, categories, precio }) => {
       </div>
       <div className="mt-4 flex justify-between items-center">
         <Precio precio={precio} />
-        <Buttons text="Añadir al carrito" size="small" type="primary" />
+        <Buttons text="Añadir al carrito" size="small" type="primary" onClick={handleShowToast} />
+        {showToast && (
+          <Toast
+            message="Producto añadido al carrito"
+            type="primarySuccess"
+            duration={3000}
+            icon="success"
+          />
+        )}
       </div>
     </div>
   );

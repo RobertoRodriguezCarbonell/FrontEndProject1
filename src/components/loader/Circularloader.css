@@ -1,0 +1,38 @@
+.circular-loader-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circular-loader {
+    transform: rotate(-90deg);
+  }
+  
+  .circular-loader-bg,
+  .circular-loader-progress {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+  }
+  
+  .circular-loader-bg {
+    stroke: #DEDCD3;
+  }
+  
+  .circular-loader-progress {
+    stroke: #FFA24B;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+  }
+  
+  .circular-loader-text {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFA24B;
+  }
+  
